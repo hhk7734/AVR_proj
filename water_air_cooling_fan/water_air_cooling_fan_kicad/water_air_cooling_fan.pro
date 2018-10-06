@@ -1,5 +1,5 @@
-update=2018년 10월 06일 (토) 오후 01시 58분 46초
-last_client=eeschema
+update=2018년 10월 07일 (일) 오전 05시 10분 14초
+last_client=kicad
 [general]
 version=1
 [schematic_editor]

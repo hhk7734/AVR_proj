@@ -503,12 +503,12 @@ F 3 "" H 3050 8150 50  0001 C CNN
 	1    3050 8150
 	1    0    0    -1  
 $EndComp
-Text Label 3350 2950 0    50   ~ 0
+Text Label 3350 3350 0    50   ~ 0
 HC-SR501_OUT
 Text Label 2200 8250 0    50   ~ 0
 HC-SR501_OUT
 Wire Wire Line
-	3350 2950 4100 2950
+	3350 3350 4100 3350
 Wire Wire Line
 	2200 8250 2950 8250
 Wire Wire Line
