@@ -10,15 +10,12 @@
 #define THRESHOLD_TEMPERATURE_VIRTUAL_PIN V3
 #define MOTION_STATE_VIRTUAL_PIN V4
 
-#define NTC103F397_ANALOG_PIN 0
-
 #define MAX_PUSH_TIME_MS 500
 #define PARALLEL_RESISTOR 9.85f
 #define THRESHOLD_TEMPERATURE_SAFETY_ZONE 0.3f
-#define MAX_MOTION_UNDETECTED_TIME_MS 10000
 
 // AT+BAUD6
-// AT+NAMEwater_cooling
+// AT+NAMEevaporative
 // AT+PIN0000
 #define HC_O6_BAUDRATE 38400
 
@@ -28,7 +25,7 @@ volatile uint32_t pushtime          = 0;
 volatile uint8_t  system_state      = 0;
 uint8_t           forced_fan_on_off = 0;
 float             temperature;
-float             threshold_temperature = 27.0f;
+float             threshold_temperature = 25.0f;
 volatile uint8_t  motion_state          = 0;
 volatile uint32_t motion_capture_time   = 0;
 
@@ -108,7 +105,7 @@ void loop()
         PORTD &= ~( _BV( PD5 ) | _BV( PD4 ) );
     }
 
-    float thermistor_R = HK_adc_read( NTC103F397_ANALOG_PIN );
+    float thermistor_R = HK_adc_read( 0 );
     thermistor_R       = ( PARALLEL_RESISTOR * thermistor_R ) / ( 1024.0 - thermistor_R );
     temperature        = HK_ntc_temperature( thermistor_R );
 }
