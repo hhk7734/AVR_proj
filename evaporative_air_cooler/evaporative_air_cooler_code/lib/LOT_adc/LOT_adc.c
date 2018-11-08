@@ -1,5 +1,5 @@
 /**
- * filename : HK_adc.c
+ * filename : LOT_adc.c
  *
  * created  : 2018/09/24
  *
@@ -9,11 +9,11 @@
  * purpose : Analog to Digital Converter
  */
 
-#include "HK_adc.h"
+#include "LOT_adc.h"
 
 #include <avr/io.h>
 
-void HK_adc_setup( void )
+void LOT_adc_setup( void )
 {
     PRR &= ~_BV( PRADC );
     ADMUX  = _BV( REFS0 ); // Voltage Reference : AVCC
@@ -28,7 +28,7 @@ void HK_adc_setup( void )
 #endif
 }
 
-int16_t HK_adc_read( uint8_t adc_pin )
+int16_t LOT_adc_read( uint8_t adc_pin )
 {
     if ( adc_pin < 8 )
     {

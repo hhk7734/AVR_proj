@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <BlynkSimpleSerialBLE.h>
 
-#include "HK_adc.h"
-#include "HK_ntc103f397.h"
+#include "LOT_adc.h"
+#include "LOT_ntc103f397.h"
 
 #define SYSTEM_STATE_VIRTUAL_PIN V0
 #define FORCED_FAN_ON_OFF_VIRTUAL_PIN V1
@@ -62,7 +62,7 @@ void setup()
     EIMSK |= _BV( INT0 );  // interrupt enable
     EICRA |= _BV( ISC00 ); // any logical change
 
-    HK_adc_setup();
+    LOT_adc_setup();
 
     DDRD &= ~_BV( DDD3 );  // INPUT
     PORTD |= _BV( PD3 );   // PULL-UP
@@ -105,9 +105,9 @@ void loop()
         PORTD &= ~( _BV( PD5 ) | _BV( PD4 ) );
     }
 
-    float thermistor_R = HK_adc_read( 0 );
+    float thermistor_R = LOT_adc_read( 0 );
     thermistor_R       = ( PARALLEL_RESISTOR * thermistor_R ) / ( 1024.0 - thermistor_R );
-    temperature        = HK_ntc_temperature( thermistor_R );
+    temperature        = LOT_ntc_temperature( thermistor_R );
 }
 
 void fast_timer( void )

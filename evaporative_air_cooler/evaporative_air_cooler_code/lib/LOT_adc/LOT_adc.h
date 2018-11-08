@@ -1,5 +1,5 @@
 /**
- * filename : HK_adc.h
+ * filename : LOT_adc.h
  *
  * created  : 2018/09/24
  *
@@ -9,8 +9,8 @@
  * purpose : Analog to Digital Converter
  */
 
-#ifndef _HK_ADC_H_
-#define _HK_ADC_H_
+#ifndef _LOT_ADC_H_
+#define _LOT_ADC_H_
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -26,10 +26,10 @@ extern "C" {
 #    error "F_CPU is not defined"
 #endif // F_CPU
 
-void    HK_adc_setup( void );
-int16_t HK_adc_read( uint8_t adc_pin );
+void    LOT_adc_setup( void );
+int16_t LOT_adc_read( uint8_t adc_pin );
 
 #ifdef __cplusplus
 }
 #endif
-#endif /* _HK_ADC_H_ */
+#endif /* _LOT_ADC_H_ */
