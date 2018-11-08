@@ -9,6 +9,12 @@
 #include "inttypes.h"
 #include <math.h>
 
+/**
+ * @brief 이전 값에 새로운 값을 대입할 때, 최대 변화량을 제한
+ * @param old 이전 값
+ * @param new 새로운 값
+ * @param interval 최대 변화량
+ */
 #define con( old, new, interval )          \
     ( ( new ) < ( ( old ) - ( interval ) ) \
           ? ( ( old ) - ( interval ) )     \
@@ -26,12 +32,11 @@ float LOT_ntc_temperature( float kohm )
 
     T = 1 / T - 273.15;
 
-    // init
+    /// 초기화
     if ( LOT_ntc_step < 5 )
     {
-        LOT_ntc_T_lpf     = ( T * 1000 );
-        LOT_ntc_T_display = LOT_ntc_T_lpf;
-        LOT_ntc_T_lpf     = LOT_ntc_T_lpf << LOT_NTC_LPF_FACTOR;
+        LOT_ntc_T_display = T * 1000;
+        LOT_ntc_T_lpf     = LOT_ntc_T_display << LOT_NTC_LPF_FACTOR;
         ++LOT_ntc_step;
     }
 
